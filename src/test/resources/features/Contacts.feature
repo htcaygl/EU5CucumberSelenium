@@ -44,3 +44,26 @@ Feature: Contacts page
     Then the user should be able to login
 
 
+    Scenario: Contacts test with email
+      Given the user logged in as "sales manager"
+      When the user navigates to "Customers", "Contacts"
+      When the user clicks the "mbrackstone9@example.com" from contacts
+      Then the information should be same with database
+
+  Scenario: Contacts test with email
+    Given the user logged in as "sales manager"
+    When the user navigates to "Customers", "Contacts"
+    When the user clicks the "mike.jorden@hotmail.com" from contacts
+    Then the information for "mike.jorden@hotmail.com" should be same with database
+
+  @wip @db
+   Scenario Outline: Contacts Test
+    Given the user logged in as "sales manager"
+    When the user navigates to "Customers", "Contacts"
+    When the user clicks the "<email>" from contacts
+    Then the information for "<email>" should be same with database
+
+    Examples:
+     |email|
+     | mbrackstone9@example.com|
+     | mike.jorden@hotmail.com|
