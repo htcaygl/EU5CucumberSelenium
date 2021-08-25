@@ -14,6 +14,14 @@ Feature: Contacts page
     Then the title contains "Calendars"
    #added "s" at the end of calender to fail
 
+  Scenario: Menu Options Driver
+    Given the user logged in as "driver"
+    Then the user should see following options
+      | Fleet      |
+      | Customers  |
+      | Activities |
+      | System     |
+
   Scenario: Menu Options
     Given the user logged in as "sales manager"
     Then the user should see following options
